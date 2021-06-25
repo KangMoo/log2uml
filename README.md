@@ -2,7 +2,7 @@
 
 ## Remote Tab
 
-
+![](https://user-images.githubusercontent.com/32938245/123391614-2b88c280-d5d7-11eb-8b38-6a32a4340fce.png)
 
 1. Host, User, Password : 원격접속할 Host, User, Password 정보
 2. Command:  명령어 입력 후 Run을 누르면 원격 접속 후 명령을 실행한다.
@@ -13,7 +13,7 @@
 
 ## UML_TEXT Tab
 
-
+![](https://user-images.githubusercontent.com/32938245/123391785-5115cc00-d5d7-11eb-8667-3848388192f5.png)
 
 - UML을 그리기 위한 텍스트를 입력하는 곳
 - Remote Tab에서 원격 수행 결과가 출력된다
@@ -23,6 +23,6 @@
 
 ## UML_VIEW Tab
 
-
+![](https://user-images.githubusercontent.com/32938245/123391825-5d018e00-d5d7-11eb-8136-4abe00772583.png)
 
 - 우측 하단의 Load버튼을 누르면 UML_TEXT의 내용을 읽어와 이미지로 그려준다
