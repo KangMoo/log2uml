@@ -1,9 +1,7 @@
 package com.github.kangmoo.connection;
 
 import javafx.application.Platform;
-import com.log2uml.Controller;
-
-import java.io.InterruptedIOException;
+import com.github.kangmoo.Controller;
 
 /**
  *

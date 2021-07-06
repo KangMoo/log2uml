@@ -1,0 +1,7 @@
+#!/bin/bash
+JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+JAVA_HOME= JAVA_HOME | sed -e 's/ /\ /g'
+CUR_PATH="$( cd "$( dirname "$0" )" && pwd -P )"
+echo "$JAVA_HOME"/bin/java -jar $CUR_PATH/log2Uml.jar
+"$JAVA_HOME"/bin/java -jar $CUR_PATH/log2Uml.jar
+
