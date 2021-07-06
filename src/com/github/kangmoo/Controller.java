@@ -94,6 +94,7 @@ public class Controller {
     public void onLoadUmlView(ActionEvent actionEvent) {
         executor.submit(()->{
             try {
+                Platform.runLater(() -> this.updateUmlView("Loading ..."));
                 String uml = "@startuml\n!theme bluegray\n" +
                         this.getUmlText() +
                         "\n@enduml";
