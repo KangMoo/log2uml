@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.log2uml</groupId>
+    <groupId>com.github.kangmoo</groupId>
     <artifactId>log2uml</artifactId>
     <version>1.0.0</version>
 
@@ -62,7 +62,7 @@
                             <finalName>log2uml</finalName>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.log2uml.Log2UmlMain</mainClass>
+                                    <mainClass>com.github.kangmoo.Log2UmlMain</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>
