@@ -18,9 +18,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class Controller {
+    ExecutorService executor = Executors.newCachedThreadPool();
     @FXML
     private TextField host;
     @FXML
@@ -58,13 +61,14 @@ public class Controller {
     }
 
     public void onCommandRun(ActionEvent actionEvent) {
-        if (buttonRun.getText().equals("Run")) {
-            connection.run(host.getText(), userName.getText(), password.getText(), command.getText());
-            buttonRun.setText("Stop");
-        } else {
-            connection.stop();
-        }
-
+        executor.submit(()->{
+            if (buttonRun.getText().equals("Run")) {
+                connection.run(host.getText(), userName.getText(), password.getText(), command.getText());
+                buttonRun.setText("Stop");
+            } else {
+                connection.stop();
+            }
+        });
     }
 
     public void updateUmlText(String text) {
@@ -88,18 +92,20 @@ public class Controller {
     }
 
     public void onLoadUmlView(ActionEvent actionEvent) {
-        try {
-            String uml = "@startuml\n!theme bluegray\n" +
-                    this.getUmlText() +
-                    "\n@enduml";
-            SourceStringReader reader = new SourceStringReader(uml);
-            os = new ByteArrayOutputStream();
-            reader.outputImage(os, new FileFormatOption(FileFormat.SVG));
-            String svg = os.toString(String.valueOf(StandardCharsets.UTF_8));
-            Platform.runLater(() -> this.updateUmlView(svg));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        executor.submit(()->{
+            try {
+                String uml = "@startuml\n!theme bluegray\n" +
+                        this.getUmlText() +
+                        "\n@enduml";
+                SourceStringReader reader = new SourceStringReader(uml);
+                os = new ByteArrayOutputStream();
+                reader.outputImage(os, new FileFormatOption(FileFormat.SVG));
+                String svg = os.toString(String.valueOf(StandardCharsets.UTF_8));
+                Platform.runLater(() -> this.updateUmlView(svg));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public class Console extends OutputStream {
